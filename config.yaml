@@ -1,0 +1,23 @@
+# model & adapter
+model_name: "vit_base_patch16_224"
+pretrained: true
+adapter_rank: 64        # r
+num_subsamples: 8       # s
+
+# data
+batch_size: 128
+num_workers: 4
+
+# training
+lr: 1e-4
+epochs: 30
+device: "cuda"
+
+# logging
+log_interval: 100
+save_dir: "./checkpoints"
+
+# subadapter settings
+subadapter_update_freq: 1     # frequency (in training steps) to recreate subadapter samples
+reg_lambda: 0         # regularization weight for error bound term
+reg_delta: 0.05             # delta for confidence in error bound
